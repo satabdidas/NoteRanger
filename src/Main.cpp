@@ -17,7 +17,10 @@ int main(int argc, char* argv[]) {
 
     Parser parser(argv[1]);
     parser.parseFileList();
+
+#ifdef NRDEBUG
     parser.printTokenTable();
+#endif
 
     return 0;
 }
