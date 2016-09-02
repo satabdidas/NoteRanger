@@ -29,10 +29,21 @@ void Parser::parseFileList() {
         while (doc >> token) {
             Tokens::iterator it = _tokens.find(token);
             if (it == _tokens.end()) {
-                _tokens.insert(std::make_pair(token, docID));
+                _tokens.insert(std::make_pair(token, DocIDs({docID})));
             } else {
-                it->second = docID;
+                it->second.push_back(docID);
             }
         }
+    }
+}
+
+void Parser::printTokenTable() {
+    std::cout << "Total no. of tokens in the table: " << _tokens.size() << '\n';
+    std::cout << "Token   : DocIDs\n";
+    for (const auto& row : _tokens) {
+        std::cout << row.first << " :";
+        std::for_each(row.second.begin(), row.second.end(),
+                      [] (const DocID& id) { std::cout << ' ' << id; });
+        std::cout << '\n';
     }
 }

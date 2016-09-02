@@ -8,8 +8,11 @@
 class Parser {
  public:
     using DocID = unsigned int;
-    using Tokens = std::unordered_map<std::string, DocID>;
+    using DocIDs = std::vector<DocID>;
+    using Tokens = std::unordered_map<std::string, DocIDs>;
     void parseFileList();
+
+    void printTokenTable();
 
     Parser(const std::string& fileListPath);
 
