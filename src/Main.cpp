@@ -1,4 +1,6 @@
 #include "Parser.hpp"
+#include "DocumentDB.hpp"
+#include "TermDB.hpp"
 
 #include <iostream>
 
@@ -16,10 +18,13 @@ int main(int argc, char* argv[]) {
               << argv[1] << '\n';
 
     Parser parser(argv[1]);
-    parser.parseFileList();
+    DocumentDB docDB;
+    TermDB termDB;
+
+    parser.parseFileList(termDB, docDB);
 
 #ifdef NRDEBUG
-    parser.printTokenTable();
+    termDB.printPostingsTable();
 #endif
 
     return 0;

@@ -3,7 +3,8 @@ SHELL = /bin/sh
 
 OBJDIR = obj
 SRCDIR = src
-SOURCES := $(wildcard $(SRCDIR)/*.cpp)
+SOURCES_TEMP = Main.cpp Parser.cpp TermDB.cpp DocumentDB.cpp
+SOURCES = $(patsubst %.cpp, $(SRCDIR)/%.cpp, $(SOURCES_TEMP))
 OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 DEPS := $(patsubst $(SRCDIR)/%.cpp, %.d, $(SOURCES))
 EXEC = noteranger
@@ -16,7 +17,7 @@ all : init $(EXEC)
 init :
 	@-mkdir -p obj
 
-$(OBJDIR)/%.o : $(SRCDIR)/%.cpp
+$(OBJECTS) : $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 
@@ -29,7 +30,7 @@ clean:
 
 ifneq ($(MAKECMDGOALS), clean)
 
-%.d : $(SRCDIR)/%.cpp
+$(DEPS) : %.d: $(SRCDIR)/%.cpp
 	rm -f $@; \
 	$(CXX) -MM $(CPPFLAGS) $^ -MF $@
 
