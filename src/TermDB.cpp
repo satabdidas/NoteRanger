@@ -1,5 +1,6 @@
 #include "TermDB.hpp"
 
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 
@@ -13,7 +14,8 @@ void TermDB::addToPostings(const std::string& token, DocID docID) {
 }
 
 void TermDB::addTerm(const std::string& token, DocID docID) {
-    addToPostings(token, docID);
+    std::string term = normalize(token);
+    addToPostings(term, docID);
 }
 
 void TermDB::printPostingsTable() {
@@ -40,4 +42,10 @@ void TermDB::writeIndexToDisk() {
     }
     file << "};";
     file.close();
+}
+
+std::string TermDB::normalize(const std::string& token) {
+    std::string normalizedTerm(token);
+    std::transform(normalizedTerm.begin(), normalizedTerm.end(), normalizedTerm.begin(), ::tolower);
+    return normalizedTerm;
 }
