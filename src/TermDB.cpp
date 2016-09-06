@@ -1,5 +1,6 @@
 #include "TermDB.hpp"
 
+#include <fstream>
 #include <iostream>
 
 void TermDB::addToPostings(const std::string& token, DocID docID) {
@@ -24,4 +25,19 @@ void TermDB::printPostingsTable() {
         std::cout << '\n';
     }
     std::cout << '\n';
+}
+
+void TermDB::writeIndexToDisk() {
+    std::ofstream file("IndexEntries.js", std::ofstream::out);
+
+    file << "var IndexEntries={\n";
+    for (const auto& posting: _postings) {
+        file << "    \"" << posting.first << "\": \n";
+        file << "        [";
+        std::for_each(posting.second.begin(), posting.second.end(),
+                      [&] (const DocID& id) { file << "\"" << id << "\", "; });
+        file << "],\n";
+    }
+    file << "};";
+    file.close();
 }

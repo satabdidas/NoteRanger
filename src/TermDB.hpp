@@ -12,6 +12,7 @@ public:
 
     void addTerm(const std::string& token, DocID docID);
     void printPostingsTable();
+    void writeIndexToDisk();
 
 private:
     void addToPostings(const std::string& token, DocID docID);

@@ -10,6 +10,7 @@ public:
     using Documents = std::unordered_map<DocID, std::string>;
 
     DocID addDocument(const std::string& docName);
+    void writeDocInfoToDisk();
 private:
     Documents     _documents;
 };

@@ -27,5 +27,7 @@ int main(int argc, char* argv[]) {
     termDB.printPostingsTable();
 #endif
 
+    termDB.writeIndexToDisk();
+    docDB.writeDocInfoToDisk();
     return 0;
 }
