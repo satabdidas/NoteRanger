@@ -15,9 +15,12 @@ public:
     void writeIndexToDisk();
     std::string normalize(const std::string& token);
 
+    TermDB(const std::string& outDir);
+
 private:
     void addToPostings(const std::string& token, DocID docID);
 
+    std::string        _outDir;
     Postings           _postings;
 };
 

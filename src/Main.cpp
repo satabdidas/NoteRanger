@@ -5,21 +5,25 @@
 #include <iostream>
 
 void printHelp() {
-    std::cout << "noteranger <filelist path>\n";
+    std::cout << "noteranger <filelist path> <output directory path>\n";
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
+    if (argc != 2 && argc != 3) {
         printHelp();
         return 1;
     }
 
+    std::string outDir;
+    if (argc == 3) {
+        outDir = argv[2];
+    }
     std::cout << "Parsing the file list path "
               << argv[1] << '\n';
 
     Parser parser(argv[1]);
-    DocumentDB docDB;
-    TermDB termDB;
+    DocumentDB docDB(outDir);
+    TermDB termDB(outDir);
 
     parser.parseFileList(termDB, docDB);
 

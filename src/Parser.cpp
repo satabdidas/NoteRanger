@@ -44,7 +44,7 @@ void Parser::parseFileList(TermDB& termDB, DocumentDB& docDB) {
 }
 
 bool Parser::validateToken(std::string& token) {
-    strip(token, "([#*_\\>`[(]+|[0-9]+.)([a-zA-Z]*)([*_`\\])]*)", 2);
+    strip(token, "([#*_/\\\\>`[(]+|[0-9]+.)([a-zA-Z]*)([*_`\\])]*)", 2);
     if (token.empty()) {
         return false;
     }

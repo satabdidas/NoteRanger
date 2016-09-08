@@ -1,8 +1,14 @@
 #include "DocumentDB.hpp"
 
+#include <boost/filesystem.hpp>
+
 #include <fstream>
 #include <functional>
 #include <iostream>
+
+DocumentDB::DocumentDB(const std::string& outDir) :
+    _outDir(outDir)
+{}
 
 DocumentDB::DocID DocumentDB::addDocument(const std::string& docName,
                                           const std::string& header) {
@@ -12,9 +18,20 @@ DocumentDB::DocID DocumentDB::addDocument(const std::string& docName,
 }
 
 void DocumentDB::writeDocInfoToDisk() {
-    std::ofstream file("TupleStorage.js");
+    std::string fileName;
+    if (_outDir.empty()) {
+        fileName = "TupleStorage.js";
+    } else {
+        boost::filesystem::path filePath(_outDir);
+        if (!boost::filesystem::is_directory(filePath)) {
+            // NOTE: This throws an exception which is unhandled now
+            boost::filesystem::create_directory(filePath);
+        }
+        fileName = _outDir + "/TupleStorage.js";
+    }
+    std::ofstream file(fileName, std::ofstream::out);
 
-    std::cout << "Writing out TupleStorage.js\n";
+    std::cout << "Writing out " << fileName << '\n';
 
     file << "var TupleStorage = {\n";
     for (const auto& doc: _documents) {

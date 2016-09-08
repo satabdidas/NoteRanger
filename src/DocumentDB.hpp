@@ -17,7 +17,10 @@ public:
 
     DocID addDocument(const std::string& docName, const std::string& header);
     void writeDocInfoToDisk();
+
+    DocumentDB(const std::string& outDir);
 private:
+    std::string   _outDir;
     Documents     _documents;
 };
 
