@@ -18,3 +18,8 @@ The query part is taken from David Branner's [notes](https://github.com/branner-
       For instance all the following belong to the same class {windows, window, Windows, Window}
 2. Deciding the stop words
 3. Make AND/OR queries
+
+## Resources
+
+1. [IR Book from Stanford](http://nlp.stanford.edu/IR-book/html/htmledition/contents-1.html)
+2. [Stanford CS 276](http://web.stanford.edu/class/cs276/)
