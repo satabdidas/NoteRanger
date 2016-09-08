@@ -6,10 +6,16 @@
 
 class DocumentDB {
 public:
-    using DocID = unsigned int;
-    using Documents = std::unordered_map<DocID, std::string>;
 
-    DocID addDocument(const std::string& docName);
+    struct DocumentInfo {
+        std::string _docName;
+        std::string _docHeader;
+    };
+
+    using DocID = unsigned int;
+    using Documents = std::unordered_map<DocID, DocumentInfo>;
+
+    DocID addDocument(const std::string& docName, const std::string& header);
     void writeDocInfoToDisk();
 private:
     Documents     _documents;

@@ -32,6 +32,8 @@ void TermDB::printPostingsTable() {
 void TermDB::writeIndexToDisk() {
     std::ofstream file("IndexEntries.js", std::ofstream::out);
 
+    std::cout << "Writing out IndexEntries.js\n";
+
     file << "var IndexEntries={\n";
     for (const auto& posting: _postings) {
         file << "    \"" << posting.first << "\": \n";
