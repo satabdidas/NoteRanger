@@ -4,6 +4,7 @@ A toy information retrieval system to
   - understand how an IR works
   - search the notes that I make in markdown format
 
+The query part is taken from David Branner's [notes](https://github.com/branner-non-code/notes/tree/gh-pages) repo with some modifications.
 
 TODO
 
