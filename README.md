@@ -6,7 +6,12 @@ A toy information retrieval system to
 
 The query part is taken from David Branner's [notes](https://github.com/branner-non-code/notes/tree/gh-pages) repo with some modifications.
 
-TODO
+
+## Search My Notes
+
+[Search My Notes](https://satabdidas.github.io/NoteRanger/searchNotes.html)
+
+## TODO
 
 1. Normalize terms
    a. Equivalence classing of terms
