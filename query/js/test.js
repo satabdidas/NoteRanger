@@ -22,7 +22,7 @@
     if (currentURL.search(/http/) === 0) {
       // Don't use htmlpreview.github.io here; displays markdown, not HTML.
       // urlPrefix = "https://github.com/brannerchinese/notes/blob/gh-pages/notes/";
-      urlPrefix = "https://github.com/satabdidas/RC_Notes/blob/master/";
+      urlPrefix = "https://github.com/satabdidas/RC_Notes/tree/master/";
       whereWeAre = "via HTTP.";
     }
     else {
