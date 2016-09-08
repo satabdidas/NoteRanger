@@ -1,0 +1,6 @@
+{
+  "name": "Noteranger",
+  "tagline": "A search engine for my notes",
+  "body": "# NoteRanger\r\n\r\nA toy information retrieval system to\r\n  - understand how an IR works\r\n  - search the notes that I make in markdown format\r\n\r\nThe query part is taken from David Branner's [notes](https://github.com/branner-non-code/notes/tree/gh-pages) repo with some modifications.\r\n\r\n\r\n## Search My Notes\r\n\r\n[Search My Notes](https://satabdidas.github.io/NoteRanger/searchNotes.html)\r\n\r\n## TODO\r\n\r\n1. Normalize terms\r\n   a. Equivalence classing of terms\r\n      For instance all the following belong to the same class {windows, window, Windows, Window}\r\n2. Deciding the stop words\r\n3. Make AND/OR queries",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
