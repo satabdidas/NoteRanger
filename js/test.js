@@ -58,7 +58,6 @@ function getSought(urlPrefix) {
     }
     sought = document.getElementById("searchTerm").value.toLowerCase();
     if (sought == null) {
-        // console.log(sought, IndexEntries);
         alert("Nothing found.");
         location.reload();
     }
@@ -76,6 +75,12 @@ function getSought(urlPrefix) {
             result = intersect(result, pLists[i]);
         }
         console.log(result);
+
+        if (result.length == 0) {
+            alert("Nothing found.");
+            location.reload();
+        }
+
         tupleIndexes = result;
         indexNum = 0;
         document.getElementById("whereRunning").innerHTML="Enter your next search term below:" +
