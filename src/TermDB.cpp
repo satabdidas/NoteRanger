@@ -13,7 +13,7 @@ TermDB::TermDB(const std::string& outDir) :
 void TermDB::addToPostings(const std::string& token, DocID docID) {
     Postings::iterator it = _postings.find(token);
     if (it == _postings.end()) {
-        _postings.insert(std::make_pair(token, std::unordered_set<DocID>({docID})));
+        _postings.insert(std::make_pair(token, std::set<DocID>({docID})));
     } else {
         it->second.insert(docID);
     }

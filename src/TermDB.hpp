@@ -3,12 +3,12 @@
 
 #include <string>
 #include <unordered_map>
-#include <unordered_set>
+#include <set>
 
 class TermDB {
 public:
     using DocID = unsigned int;
-    using Postings = std::unordered_map<std::string, std::unordered_set<DocID>>;;
+    using Postings = std::unordered_map<std::string, std::set<DocID>>;;
 
     void addTerm(const std::string& token, DocID docID);
     void printPostingsTable();

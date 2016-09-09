@@ -57,14 +57,26 @@ function getSought(urlPrefix) {
     console.log("empty urlprefix\n");
   }
   sought = document.getElementById("searchTerm").value.toLowerCase();
-  if (sought === null || typeof IndexEntries[sought] === "undefined") {
-    console.log(sought, IndexEntries);
+  if (sought == null) {
+    // console.log(sought, IndexEntries);
     alert("Nothing found.");
     location.reload();
   }
   else {
     document.close();
-    tupleIndexes = IndexEntries[sought];
+
+    var terms = sought.split(" ");
+    console.log("The query terms are " + terms);
+    var pLists = getTermList(terms);
+    pLists.sort(function(pList1, pList2) {
+        return pList1.length - pList2.length;
+    });
+    var result = pLists[0];
+    for (i = 1; i < pLists.length; ++i) {
+        result = intersect(result, pLists[i]);
+    }
+    console.log(result);
+    tupleIndexes = result;
     indexNum = 0;
     document.getElementById("whereRunning").innerHTML="Enter your next search term below:" +
         "<p id=\"whereRunning\"> </p>" +
@@ -83,4 +95,36 @@ function getSought(urlPrefix) {
     output += "</ul>";
     document.getElementById("results").innerHTML=output;
   }
+}
+
+function getTermList(terms) {
+    var result = [];
+    for (term in terms) {
+        if (term != null && IndexEntries[terms[term]] != null) {
+            result.push(IndexEntries[terms[term]]);
+            console.log("The posting list for " + terms[term] + " is " + IndexEntries[terms[term]]);
+        }
+    }
+    return result;
+}
+
+function intersect(pList1, pList2) {
+    var i = 0, j = 0;
+    var result = [];
+
+    while (i < pList1.length && j < pList2.length) {
+        var num1 = parseInt(pList1[i]);
+        var num2 = parseInt(pList2[j]);
+        if (num1 == num2) {
+            result.push(pList1[i]);
+            i++;
+            j++;
+        } else if (num1 < num2) {
+            ++i;
+        } else {
+            ++j;
+        }
+    }
+
+    return result;
 }
