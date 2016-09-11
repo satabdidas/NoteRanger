@@ -22,6 +22,7 @@
             whereWeAre = "from the filesystem.";
         }
 
+        document.getElementById("whereFrom").innerHTML=whereWeAre;
         document.getElementById("searchForm").addEventListener('submit', getSought);
         // Set focus.
         document.getElementById("searchTerm").focus();
