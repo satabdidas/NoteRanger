@@ -34,18 +34,21 @@
 <h2>
 <a id="search-my-notes" class="anchor" href="#search-my-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search My Notes</h2>
 
-<p><a href="https://satabdidas.github.io/NoteRanger/searchNotes.html">Search My Notes</a></p>
+  <p id="whereRunning">
+            This page was read from <span id="whereFrom"></span>
+            <br/><br/>
+            Enter your search term below:
+            <form id="searchForm">
+            <input type="text" id="searchTerm" />
+            <input type="submit" value="Enter search term">
+            </form>
+  </p>
+  <hr>
+  <section id="results"></section>
+  <script src="js/IndexEntries.js"></script>
+  <script src="js/TupleStorage.js"></script>
+  <script src="js/test.js"></script>
 
-<h2>
-<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
-
-<ol>
-<li>Normalize terms
-a. Equivalence classing of terms
-  For instance all the following belong to the same class {windows, window, Windows, Window}</li>
-<li>Deciding the stop words</li>
-<li>Make AND/OR queries</li>
-</ol>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/satabdidas/NoteRanger">Noteranger</a> is maintained by <a href="https://github.com/satabdidas">satabdidas</a>.</span>
@@ -55,6 +58,6 @@ a. Equivalence classing of terms
 
     </section>
 
-  
+
   </body>
 </html>
