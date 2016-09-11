@@ -47,11 +47,12 @@
             document.close();
 
             var result = getResult(sought);
-            if (result.length === 0) {
+            if (result == null || result.length === 0) {
                 alert("Nothing found.");
                 location.reload();
+            } else {
+                displayResult(result, sought);
             }
-            displayResult(result, sought);
         }
     }
 
