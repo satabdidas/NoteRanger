@@ -9,7 +9,7 @@ The query part is taken from David Branner's [notes](https://github.com/branner-
 
 ## Search My Notes
 
-[Search My Notes](https://satabdidas.github.io/NoteRanger/searchNotes.html)
+[Search My Notes](https://satabdidas.github.io/NoteRanger/)
 
 ## TODO
 
