@@ -1,0 +1,7 @@
+export BOOST_INCLUDE=/usr/local/Cellar/boost/1.61.0_1/include/boost
+export CXX_INCLUDE=/usr/local/opt/llvm38/lib/llvm-3.8/include/c++/v1
+
+export BOOST_LIB=/usr/local/Cellar/boost/1.61.0_1/lib
+
+export CXX=clang++-3.8
+export CXXFLAGS=-stdlib=libc++

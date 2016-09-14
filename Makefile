@@ -9,9 +9,8 @@ OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 DEPS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.d, $(SOURCES))
 EXEC = noteranger
 
-CXX = clang++-3.8
-CXXFLAGS = -g -std=c++14 -stdlib=libc++ -I/usr/local/opt/llvm38/lib/llvm-3.8/include/c++/v1 -I/usr/local/Cellar/boost/1.61.0_1/include/boost
-LDFLAGS = -L/usr/local/Cellar/boost/1.61.0_1/lib -lboost_regex -lboost_filesystem -lboost_system
+CXXFLAGS += -g -std=c++14 -I$(CXX_INCLUDE) -I$(BOOST_INCLUDE)
+LDFLAGS = -L$(BOOST_LIB) -lboost_regex -lboost_filesystem -lboost_system
 
 all : $(OBJDIR) $(EXEC)
 
